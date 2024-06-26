@@ -14,8 +14,5 @@ public class DemoApplication {
 		HelloWorld helloWorld = applicationContext.getBean(HelloWorld.class);
 		helloWorld.sayHello();
 	}
-//	@Bean
-//	public HelloWorld helloWorld(){
-//		return new HelloWorld();
-//	}
+
 }
