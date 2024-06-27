@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfig {
     @Bean
 	public HelloWorld helloWorld(){
-		return new HelloWorld();
+		return new HelloWorld("Sujan Boopathy");
 	}
 }

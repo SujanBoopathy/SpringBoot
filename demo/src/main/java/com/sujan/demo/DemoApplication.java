@@ -11,8 +11,11 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(DemoApplication.class, args);
 
-		HelloWorld helloWorld = applicationContext.getBean(HelloWorld.class);
-		helloWorld.sayHello();
+//		HelloWorld helloWorld = applicationContext.getBean("helloWorldBean",HelloWorld.class);
+//		helloWorld.sayHello();
+
+		MyService myService = applicationContext.getBean(MyService.class);
+		System.out.println(myService.getAbout());
 	}
 
 }
