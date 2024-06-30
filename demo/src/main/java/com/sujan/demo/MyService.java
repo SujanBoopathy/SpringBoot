@@ -8,9 +8,22 @@ import org.springframework.stereotype.Service;
 public class MyService {
     private final HelloWorld helloWorld;
 
-    public MyService(@Qualifier("bean2") HelloWorld helloBean) {
+// Field injection -
+//    @Autowired
+//    private HelloWorld helloWorld
+
+//    Method injection -
+//    @Autowired
+//    public void injectDependencies(
+//            HelloWorld helloWorld
+//    ){
+//        this.helloWorld = helloWorld;
+//    }
+
+    public MyService(HelloWorld helloBean) {
         this.helloWorld = helloBean;
     }
+
 
     public String getAbout(){
         return "My Service : About myself : "+ helloWorld.sayHello();
