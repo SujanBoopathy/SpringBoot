@@ -16,6 +16,10 @@ public class DemoApplication {
 
 		MyService myService = applicationContext.getBean(MyService.class);
 		System.out.println(myService.getAbout());
+		System.out.println("Java version :" + myService.getJavaVersion());
+		System.out.println("Os :" + myService.getOsName());
+		System.out.println("Custom Prop :" + myService.readCustomProp());
+
 	}
 
 }

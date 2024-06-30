@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ApplicationConfig {
-    @Bean("bean1")
+    @Bean
 	public HelloWorld helloWorld(){
 		return new HelloWorld("Sujan Boopathy");
 	}

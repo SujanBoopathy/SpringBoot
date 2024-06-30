@@ -2,11 +2,14 @@ package com.sujan.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MyService {
     private final HelloWorld helloWorld;
+    private Environment environment;
+
 
 // Field injection -
 //    @Autowired
@@ -23,9 +26,23 @@ public class MyService {
     public MyService(HelloWorld helloBean) {
         this.helloWorld = helloBean;
     }
+    @Autowired
+    public void setEnvironment(Environment env){
+        this.environment = env;
+    }
 
-
+    public String getJavaVersion(){
+        return environment.getProperty("java.version");
+    }
     public String getAbout(){
         return "My Service : About myself : "+ helloWorld.sayHello();
+    }
+
+    public String getOsName() {
+        return environment.getProperty("os.name");
+    }
+
+    public String readCustomProp() {
+        return environment.getProperty("my.custom.property");
     }
 }
