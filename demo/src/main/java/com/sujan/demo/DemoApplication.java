@@ -20,6 +20,10 @@ public class DemoApplication {
 		System.out.println("Os :" + myService.getOsName());
 		System.out.println("Custom Prop :" + myService.readCustomProp());
 
+
+		MyService2 myService2 = applicationContext.getBean(MyService2.class);
+		System.out.println("Custom prop from service 2 :" + myService2.getMyCustomProp());
+
 	}
 
 }
