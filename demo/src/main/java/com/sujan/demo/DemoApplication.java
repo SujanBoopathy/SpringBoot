@@ -23,6 +23,7 @@ public class DemoApplication {
 
 		MyService2 myService2 = applicationContext.getBean(MyService2.class);
 		System.out.println("Custom prop from service 2 :" + myService2.getMyCustomProp());
+		System.out.println("Custom prop from service 2 :" + myService2.getAdminName());
 
 	}
 
