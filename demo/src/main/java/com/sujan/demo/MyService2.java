@@ -23,6 +23,13 @@ public class MyService2 {
     @Value("${admin.user.name}")
     private String adminName;
 
+    public String getMyCustomProperty() {
+        return myCustomProperty;
+    }
+
+    @Value("${my.custom.property.sujan}")
+    private String myCustomProperty;
+
     public String getAdminName() {
         return adminName;
     }
