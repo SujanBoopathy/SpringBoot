@@ -5,12 +5,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Collections;
+
 @SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(DemoApplication.class, args);
+		var app = new SpringApplication(DemoApplication.class);
+		app.setDefaultProperties(Collections.singletonMap("spring.profiles.active","dev"));
+//		ConfigurableApplicationContext applicationContext = SpringApplication.run(DemoApplication.class, args);
 
+		var applicationContext = app.run(args);
 //		HelloWorld helloWorld = applicationContext.getBean("helloWorldBean",HelloWorld.class);
 //		helloWorld.sayHello();
 
