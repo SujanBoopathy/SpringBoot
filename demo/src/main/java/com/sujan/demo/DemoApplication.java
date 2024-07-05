@@ -19,11 +19,11 @@ public class DemoApplication {
 //		HelloWorld helloWorld = applicationContext.getBean("helloWorldBean",HelloWorld.class);
 //		helloWorld.sayHello();
 
-		MyService myService = applicationContext.getBean(MyService.class);
-		System.out.println(myService.getAbout());
-		System.out.println("Java version :" + myService.getJavaVersion());
-		System.out.println("Os :" + myService.getOsName());
-		System.out.println("Custom Prop :" + myService.readCustomProp());
+//		MyService myService = applicationContext.getBean(MyService.class);
+//		System.out.println(myService.getAbout());
+//		System.out.println("Java version :" + myService.getJavaVersion());
+//		System.out.println("Os :" + myService.getOsName());
+//		System.out.println("Custom Prop :" + myService.readCustomProp());
 
 
 		MyService2 myService2 = applicationContext.getBean(MyService2.class);

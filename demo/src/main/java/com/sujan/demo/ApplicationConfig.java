@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class ApplicationConfig {
     @Bean
+	@Primary
 	public HelloWorld helloWorld(){
 		return new HelloWorld("Sujan Boopathy");
 	}
@@ -16,8 +18,7 @@ public class ApplicationConfig {
 	public HelloWorld helloWorld2(){
 		return new HelloWorld("Saubali");
 	}
-	@Bean
-	@Primary
+	@Bean("bean1")
 	public HelloWorld helloWorld3(){
 		return new HelloWorld("Sara");
 	}

@@ -1,5 +1,6 @@
 package com.sujan.demo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
@@ -34,7 +35,7 @@ public class MyService2 {
         return adminName;
     }
 
-    public MyService2(HelloWorld helloWorld) {
+    public MyService2(@Qualifier("bean1") HelloWorld helloWorld) {
         this.helloWorld = helloWorld;
     }
 
