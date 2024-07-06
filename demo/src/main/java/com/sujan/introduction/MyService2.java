@@ -1,10 +1,10 @@
-package com.sujan.demo;
+package com.sujan.introduction;
 
+import com.sujan.introduction.HelloWorld;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service

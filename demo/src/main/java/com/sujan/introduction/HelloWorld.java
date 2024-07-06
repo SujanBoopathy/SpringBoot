@@ -1,4 +1,4 @@
-package com.sujan.demo;
+package com.sujan.introduction;
 
 import org.springframework.stereotype.Component;
 

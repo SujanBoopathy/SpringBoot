@@ -1,7 +1,7 @@
-package com.sujan.demo;
+package com.sujan.introduction;
 
+import com.sujan.introduction.HelloWorld;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
