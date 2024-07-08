@@ -22,4 +22,11 @@ public class FirstController {
     ){
         return "Data received an message is "+message;
     }
+
+    @PostMapping("/order")
+    public String order(
+            @RequestBody Order order
+    ){
+        return "Order transaction  :"+order.toString();
+    }
 }
