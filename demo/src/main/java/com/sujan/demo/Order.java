@@ -1,8 +1,13 @@
 package com.sujan.demo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Order {
+    @JsonProperty("cust-Name")
     public String customerName;
+    @JsonProperty("transaction-Id")
     public int transactionId;
+    @JsonProperty("price")
     public int amount;
 
     public String getCustomerName() {
