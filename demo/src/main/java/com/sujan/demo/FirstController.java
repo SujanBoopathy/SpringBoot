@@ -29,4 +29,11 @@ public class FirstController {
     ){
         return "Order transaction  :"+order.toString();
     }
+
+    @PostMapping("/order-record")
+    public String orderRecord(
+            @RequestBody OrderRecord order
+    ){
+        return "Order transaction  :"+order.toString();
+    }
 }
