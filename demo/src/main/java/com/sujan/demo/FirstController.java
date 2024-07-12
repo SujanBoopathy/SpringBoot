@@ -16,6 +16,20 @@ public class FirstController {
         return "Hello 2 from my first controller";
     }
 
+    @GetMapping("/home/{user-name}")
+    public String sayHello3(
+            @PathVariable("user-name") String userName
+    ){
+        return "Hello "+ userName;
+    }
+    @GetMapping("/home3")
+    public String sayHello4(
+            @RequestParam("user-name") String userName,
+            @RequestParam("user-role") String role
+    ){
+        return "Hello "+userName+" , role : "+role;
+    }
+
     @PostMapping("/post")
     public String post(
             @RequestBody String message
