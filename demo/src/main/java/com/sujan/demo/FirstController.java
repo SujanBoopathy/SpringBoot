@@ -22,7 +22,8 @@ public class FirstController {
     ){
         return "Hello "+ userName;
     }
-    @GetMapping("/home3")
+    //TODO - NEED TO HANDLE THIS WITH SAME URL BUT DIFF METHOD PARAMS
+    //@GetMapping("/home")
     public String sayHello4(
             @RequestParam("user-name") String userName,
             @RequestParam("user-role") String role
