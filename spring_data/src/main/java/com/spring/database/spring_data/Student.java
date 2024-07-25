@@ -1,5 +1,8 @@
 package com.spring.database.spring_data;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Student {
 	private long id;
 	private String firstName;
@@ -7,6 +10,14 @@ public class Student {
 	private int age;
 	private String email;
 	
+	public Student(long id, String firstName, String lastName, int age, String email) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.email = email;
+	}
 	public long getId() {
 		return id;
 	}
