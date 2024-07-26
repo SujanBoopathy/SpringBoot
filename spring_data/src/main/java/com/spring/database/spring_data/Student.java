@@ -1,14 +1,53 @@
 package com.spring.database.spring_data;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Student {
+	@Id
+	@SequenceGenerator(
+			name  ="student_sequence",
+			sequenceName = "student_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "student_sequence"
+	)
+	@Column(
+			name = "id",
+			updatable = false
+	)
 	private long id;
+	@Column( 
+			name = "first_name",
+			nullable = false, 
+			columnDefinition = "TEXT"
+	)
 	private String firstName;
+	@Column( 
+			name = "last_name",
+			nullable = false, 
+			columnDefinition = "TEXT"
+	)
 	private String lastName;
-	private int age;
+	@Column( 
+			name = "email",
+			nullable = false, 
+			columnDefinition = "TEXT",
+			unique = true
+	)
 	private String email;
+	@Column( 
+			name = "age",
+			nullable = false
+	)
+	private int age;
 	
 	public Student(long id, String firstName, String lastName, int age, String email) {
 		super();
