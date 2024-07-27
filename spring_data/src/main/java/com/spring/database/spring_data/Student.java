@@ -6,8 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
-@Entity
+@Entity(name="Student")
+@Table( name="student", uniqueConstraints = {
+		@UniqueConstraint(name="student_email_unique",columnNames= "email")
+})
 public class Student {
 	@Id
 	@SequenceGenerator(
@@ -23,7 +28,7 @@ public class Student {
 			name = "id",
 			updatable = false
 	)
-	private long id;
+	private Long id;
 	@Column( 
 			name = "first_name",
 			nullable = false, 
@@ -39,8 +44,7 @@ public class Student {
 	@Column( 
 			name = "email",
 			nullable = false, 
-			columnDefinition = "TEXT",
-			unique = true
+			columnDefinition = "TEXT"
 	)
 	private String email;
 	@Column( 
@@ -49,18 +53,16 @@ public class Student {
 	)
 	private int age;
 	
-	public Student(long id, String firstName, String lastName, int age, String email) {
-		super();
-		this.id = id;
+	public Student( String firstName, String lastName, int age, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.email = email;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getFirstName() {
