@@ -8,12 +8,26 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity(name="Student")
 @Table( name="student", uniqueConstraints = {
 		@UniqueConstraint(name="student_email_unique",columnNames= "email")
 })
 public class Student {
+	public Student( String firstName, String lastName, String email, int age, String guardianName,
+			String guardianMobileNo, String guardianEmail) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.age = age;
+		this.guardianName = guardianName;
+		this.guardianMobileNo = guardianMobileNo;
+		this.guardianEmail = guardianEmail;
+	}
 	@Id
 	@SequenceGenerator(
 			name  ="student_sequence",
@@ -47,46 +61,25 @@ public class Student {
 			columnDefinition = "TEXT"
 	)
 	private String email;
+	
 	@Column( 
 			name = "age",
 			nullable = false
 	)
 	private int age;
-	
-	public Student( String firstName, String lastName, int age, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.email = email;
-	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	@Column(
+			name="guardian_name", 
+			nullable= false
+	)
+	private String guardianName;
+	@Column(
+			name="guardian_mobile", 
+			nullable= false
+	)
+	private String guardianMobileNo;
+	@Column(
+			name="guardian_email",
+			nullable= false
+	)
+	private String guardianEmail;
 }
