@@ -14,7 +14,8 @@ public class SpringDataJpaApplication {
 	@Bean
 	CommandLineRunner commandLineRunner(StudentRepository studentRepo) {
 		return args -> {
-			Student sujan = new Student("sujan", "boopathy","sujan.ab@gmail.com", 20, "boopathy", "boopathy@gmail.com", "98393829292939");
+			Guardian father = new Guardian("boopathy","boopathy123@gmail.com","20293930202");
+			Student sujan = new Student("sujan", "boopathy","sujan.ab@gmail.com", 20,father);
 			studentRepo.save(sujan);
 		};
 	}

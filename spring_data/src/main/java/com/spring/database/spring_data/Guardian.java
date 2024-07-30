@@ -28,4 +28,10 @@ public class Guardian {
 	String guardianName;
 	String guardianEmail;
 	String mobileNumber;
+	
+	public Guardian(String name,String email,String mobile) {
+		this.guardianName = name;
+		this.guardianEmail = email;
+		this.mobileNumber = mobile;
+	}
 }

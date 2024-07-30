@@ -1,6 +1,7 @@
 package com.spring.database.spring_data;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,15 +19,12 @@ import lombok.NoArgsConstructor;
 		@UniqueConstraint(name="student_email_unique",columnNames= "email")
 })
 public class Student {
-	public Student( String firstName, String lastName, String email, int age, String guardianName,
-			String guardianMobileNo, String guardianEmail) {
+	public Student( String firstName, String lastName, String email, int age,Guardian guardian) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.age = age;
-		this.guardianName = guardianName;
-		this.guardianMobileNo = guardianMobileNo;
-		this.guardianEmail = guardianEmail;
+		this.guardian = guardian;
 	}
 	@Id
 	@SequenceGenerator(
@@ -67,19 +65,22 @@ public class Student {
 			nullable = false
 	)
 	private int age;
-	@Column(
-			name="guardian_name", 
-			nullable= false
-	)
-	private String guardianName;
-	@Column(
-			name="guardian_mobile", 
-			nullable= false
-	)
-	private String guardianMobileNo;
-	@Column(
-			name="guardian_email",
-			nullable= false
-	)
-	private String guardianEmail;
+	
+	@Embedded
+	private Guardian guardian;
+//	@Column(
+//			name="guardian_name", 
+//			nullable= false
+//	)
+//	private String guardianName;
+//	@Column(
+//			name="guardian_mobile", 
+//			nullable= false
+//	)
+//	private String guardianMobileNo;
+//	@Column(
+//			name="guardian_email",
+//			nullable= false
+//	)
+//	private String guardianEmail;
 }
