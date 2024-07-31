@@ -3,10 +3,12 @@ package com.spring.database.spring_data;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Embeddable
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,6 +30,10 @@ public class Guardian {
 	String guardianName;
 	String guardianEmail;
 	String mobileNumber;
+	
+	public Guardian() {
+		
+	}
 	
 	public Guardian(String name,String email,String mobile) {
 		this.guardianName = name;
