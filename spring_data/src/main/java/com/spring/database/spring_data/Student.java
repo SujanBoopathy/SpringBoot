@@ -19,6 +19,9 @@ import lombok.NoArgsConstructor;
 		@UniqueConstraint(name="student_email_unique",columnNames= "email")
 })
 public class Student {
+	public Student() {
+		
+	}
 	public Student( String firstName, String lastName, String email, int age,Guardian guardian) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -83,4 +86,10 @@ public class Student {
 //			nullable= false
 //	)
 //	private String guardianEmail;
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", age=" + age + ", guardian=" + guardian + "]";
+	}
 }

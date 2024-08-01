@@ -1,5 +1,7 @@
 package com.spring.database.spring_data;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +19,16 @@ public class SpringDataJpaApplication {
 			Guardian father = new Guardian("boopathy","boopathy123@gmail.com","20293930202");
 			Student sujan = new Student("sujan", "boopathy","sujan.ab@gmail.com", 20,father);
 			studentRepo.save(sujan);
+			
+			Student saubali = new Student("saubali", "boopathy","saubali.b@gmail.com", 21,father);
+			studentRepo.save(saubali);
+			
+			String lastName = "boopathy";
+			List<Student> studentList = studentRepo.findByLastName(lastName);
+
+			for(Student student : studentList) {				
+				System.out.println("Student  :"+student);
+			}
 		};
 	}
 
