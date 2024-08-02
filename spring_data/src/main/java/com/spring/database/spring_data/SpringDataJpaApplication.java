@@ -29,6 +29,12 @@ public class SpringDataJpaApplication {
 			for(Student student : studentList) {				
 				System.out.println("Student  :"+student);
 			}
+			
+			List<Student> studentList2 = studentRepo.findByFirstNameContaining("suj");
+			System.out.println(studentList2);
+			
+			List<Student> studentList3 = studentRepo.findByGuardianName("boopathy");
+			System.out.println(studentList3);
 		};
 	}
 

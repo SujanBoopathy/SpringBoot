@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 	)
 })
 public class Guardian {
-	String guardianName;
+	String name;
 	String guardianEmail;
 	String mobileNumber;
 	
@@ -36,7 +36,7 @@ public class Guardian {
 	}
 	
 	public Guardian(String name,String email,String mobile) {
-		this.guardianName = name;
+		this.name = name;
 		this.guardianEmail = email;
 		this.mobileNumber = mobile;
 	}
