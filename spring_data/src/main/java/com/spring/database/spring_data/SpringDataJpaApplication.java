@@ -30,6 +30,10 @@ public class SpringDataJpaApplication {
 				System.out.println("Student  :"+student);
 			}
 			
+			
+			
+			System.out.println(studentRepo.updateFirstNameByEmail("suju", "sujan.ab@gmail.com"));
+			
 			Student student = studentRepo.getStudentByEmailId("sujan.ab@gmail.com"); 
 			System.out.println(student);
 			

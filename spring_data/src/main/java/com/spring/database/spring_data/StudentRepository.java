@@ -3,7 +3,9 @@ package com.spring.database.spring_data;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface StudentRepository extends JpaRepository<Student,Long>{
 	public List<Student> findByLastName(String lastName);
@@ -13,4 +15,12 @@ public interface StudentRepository extends JpaRepository<Student,Long>{
 	
 	@Query("select s from Student s where s.email = ?1")
 	public Student getStudentByEmailId(String emailId);
+	
+	@Modifying
+	@Transactional
+	@Query(
+		value = "update student set first_name = ?1 where email = ?2",
+		nativeQuery = true
+	)
+	public int updateFirstNameByEmail(String firstName,String email);
 }
