@@ -37,6 +37,9 @@ public class SpringDataJpaApplication {
 			Student student = studentRepo.getStudentByEmailId("sujan.ab@gmail.com"); 
 			System.out.println(student);
 			
+			Student student2 = studentRepo.getStudentByEmailIdParam("sujan.ab@gmail.com"); 
+			System.out.println(student2);
+			
 //			List<Student> studentList2 = studentRepo.findByFirstNameContaining("suj");
 //			System.out.println(studentList2);
 //			

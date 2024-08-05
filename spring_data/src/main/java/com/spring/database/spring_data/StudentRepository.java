@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface StudentRepository extends JpaRepository<Student,Long>{
@@ -15,6 +16,12 @@ public interface StudentRepository extends JpaRepository<Student,Long>{
 	
 	@Query("select s from Student s where s.email = ?1")
 	public Student getStudentByEmailId(String emailId);
+	
+	@Query(
+			value="select * from student where email = :email",
+			nativeQuery = true
+	)
+	public Student getStudentByEmailIdParam(@Param("email") String emailId);
 	
 	@Modifying
 	@Transactional
