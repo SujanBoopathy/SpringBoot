@@ -1,5 +1,6 @@
 package com.spring.database.spring_data;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,16 +24,16 @@ public class CourseMaterial {
 	private int courseMaterialId;
 	private String url;
 	
-	@OneToOne
+	@OneToOne(
+			cascade = CascadeType.ALL
+	)
 	@JoinColumn(
 			name = "course_id",
 			referencedColumnName = "courseId"
 	)
 	private Course course;
 	
-	public CourseMaterial(int courseMaterialId, String url, Course course) {
-		super();
-		this.courseMaterialId = courseMaterialId;
+	public CourseMaterial( String url, Course course) {
 		this.url = url;
 		this.course = course;
 	}
