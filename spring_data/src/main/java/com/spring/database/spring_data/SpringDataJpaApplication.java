@@ -61,6 +61,9 @@ public class SpringDataJpaApplication {
 		
 		courseMaterialRepo.save(courseMaterial);
 		
+		List<CourseMaterial> courseMaterials = courseMaterialRepo.findAll();
+		System.out.println(courseMaterials);
+		
 		
 	}
 

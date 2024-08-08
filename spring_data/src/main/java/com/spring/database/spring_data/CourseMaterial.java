@@ -2,6 +2,7 @@ package com.spring.database.spring_data;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +26,8 @@ public class CourseMaterial {
 	private String url;
 	
 	@OneToOne(
-			cascade = CascadeType.ALL
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY
 	)
 	@JoinColumn(
 			name = "course_id",
@@ -68,6 +70,6 @@ public class CourseMaterial {
 
 	@Override
 	public String toString() {
-		return "CourseMaterial [courseMaterialId=" + courseMaterialId + ", url=" + url + ", course=" + course + "]";
+		return "CourseMaterial [courseMaterialId=" + courseMaterialId + ", url=" + url + "]";
 	}
 }
