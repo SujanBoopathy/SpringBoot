@@ -14,7 +14,7 @@ public class SpringDataJpaApplication {
 		SpringApplication.run(SpringDataJpaApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner commandLineRunner(StudentRepository studentRepo,CourseMaterialRepository courseMaterialRepo) {
+	CommandLineRunner commandLineRunner(StudentRepository studentRepo,CourseMaterialRepository courseMaterialRepo,CourseRepository courseRepo) {
 		return args -> {
 			Guardian father = new Guardian("boopathy","boopathy123@gmail.com","20293930202");
 			Student sujan = new Student("sujan", "boopathy","sujan.ab@gmail.com", 20,father);
@@ -50,11 +50,11 @@ public class SpringDataJpaApplication {
 //			System.out.println(studentList4);
 			
 			
-			processCourse(courseMaterialRepo);
+			processCourse(courseMaterialRepo,courseRepo);
 		};
 	}
 	
-	public void processCourse(CourseMaterialRepository courseMaterialRepo) {
+	public void processCourse(CourseMaterialRepository courseMaterialRepo,CourseRepository courseRepo) {
 		Course course = new Course(5,"DSA");
 		
 		CourseMaterial courseMaterial = new CourseMaterial("google.com",course);
@@ -64,6 +64,8 @@ public class SpringDataJpaApplication {
 		List<CourseMaterial> courseMaterials = courseMaterialRepo.findAll();
 		System.out.println(courseMaterials);
 		
+		List<Course> courseList = courseRepo.findAll();
+		System.out.println(courseList);
 		
 	}
 
