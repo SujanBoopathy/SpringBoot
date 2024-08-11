@@ -2,13 +2,36 @@ package com.spring.database.spring_data;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Teacher {
+	@Id
+	@SequenceGenerator(
+			name = "teacher_sequence",
+			sequenceName = "teacher_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "teacher_sequence"
+	)
 	private long teacherId;
 	private String firstName;
 	private String lastName;
+	
+	@OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(
+			name = "teacher_id",
+			referencedColumnName = "teacherId"
+	)
 	private List<Course> courseList;
 	
 	public Teacher(long teacherId, String firstName, String lastName, List<Course> courseList) {
