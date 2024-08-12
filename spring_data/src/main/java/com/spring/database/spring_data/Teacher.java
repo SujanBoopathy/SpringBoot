@@ -23,7 +23,7 @@ public class Teacher {
 			strategy = GenerationType.SEQUENCE,
 			generator = "teacher_sequence"
 	)
-	private long teacherId;
+	private Long teacherId;
 	private String firstName;
 	private String lastName;
 	
@@ -34,9 +34,8 @@ public class Teacher {
 	)
 	private List<Course> courseList;
 	
-	public Teacher(long teacherId, String firstName, String lastName, List<Course> courseList) {
+	public Teacher(String firstName, String lastName, List<Course> courseList) {
 		super();
-		this.teacherId = teacherId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.courseList = courseList;
