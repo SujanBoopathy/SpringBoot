@@ -1,25 +1,16 @@
 package com.spring.database.spring_data;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Course {
-	private int courseId;
-	private int credit;
-	private String title;
-	
-	public Course() {
-
-	}
-	public Course( int credit, String title) {
-		this.credit = credit;
-		this.title = title;
-	}
-	
 	@Id
 	@SequenceGenerator(
 			name = "course_sequence",
@@ -30,6 +21,39 @@ public class Course {
 			strategy = GenerationType.SEQUENCE,
 			generator = "course_sequence"
 	)
+	private int courseId;
+	private int credit;
+	private String title;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(
+			name = "teacher_id",
+			referencedColumnName = "teacherId"
+	)
+	private Teacher teacher;
+	
+	public Teacher getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	
+	public Course() {
+
+	}
+//	public Course( int credit, String title) {
+//		this.credit = credit;
+//		this.title = title;
+//	}
+	
+	public Course( int credit, String title,Teacher teacher) {
+		this.credit = credit;
+		this.title = title;
+		this.teacher = teacher;
+	}
+	
+	
 	public int getCourseId() {
 		return courseId;
 	}

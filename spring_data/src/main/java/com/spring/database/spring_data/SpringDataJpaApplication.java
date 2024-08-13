@@ -71,8 +71,12 @@ public class SpringDataJpaApplication {
 		List<Course> courseList = courseRepo.findAll();
 		System.out.println(courseList);
 		
-		Teacher teacher = new Teacher("sujan","boopathy",courseList);
-		teacherRepo.save(teacher);
+		Teacher sujan = new Teacher("saubali","boopathy");
+		Course course2 = new Course(5,"C++",sujan);
+		courseRepo.save(course2);
+		
+//		Teacher teacher = new Teacher("sujan","boopathy",List.of(course2));
+//		teacherRepo.save(teacher);
 //		
 //		List<Teacher> teachers = teacherRepo.findAll();
 //		System.out.println(teachers);

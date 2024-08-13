@@ -27,18 +27,24 @@ public class Teacher {
 	private String firstName;
 	private String lastName;
 	
-	@OneToMany( cascade = CascadeType.ALL)
-	@JoinColumn(
-			name = "teacher_id",
-			referencedColumnName = "teacherId"
-	)
-	private List<Course> courseList;
+//	@OneToMany( cascade = CascadeType.ALL)
+//	@JoinColumn(
+//			name = "teacher_id",
+//			referencedColumnName = "teacherId"
+//	)
+//	private List<Course> courseList;
 	
-	public Teacher(String firstName, String lastName, List<Course> courseList) {
+//	public Teacher(String firstName, String lastName, List<Course> courseList) {
+//		super();
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+////		this.courseList = courseList;
+//	}
+	
+	public Teacher(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.courseList = courseList;
 	}
 	
 	public Teacher() {
@@ -75,14 +81,14 @@ public class Teacher {
 	}
 
 
-	public List<Course> getCourseList() {
-		return courseList;
-	}
-
-
-	public void setCourseList(List<Course> courseList) {
-		this.courseList = courseList;
-	}
+//	public List<Course> getCourseList() {
+//		return courseList;
+//	}
+//
+//
+//	public void setCourseList(List<Course> courseList) {
+//		this.courseList = courseList;
+//	}
 	
 	
 }
