@@ -59,11 +59,11 @@ public class SpringDataJpaApplication {
 	}
 	
 	public void processCourse(CourseMaterialRepository courseMaterialRepo,CourseRepository courseRepo,TeacherRepository teacherRepo) {
-		Course course = new Course(5,"DSA");
+//		Course course = new Course(5,"DSA");
 		
-		CourseMaterial courseMaterial = new CourseMaterial("google.com",course);
+//		CourseMaterial courseMaterial = new CourseMaterial("google.com",course);
 		
-		courseMaterialRepo.save(courseMaterial);
+//		courseMaterialRepo.save(courseMaterial);
 		
 		List<CourseMaterial> courseMaterials = courseMaterialRepo.findAll();
 		System.out.println(courseMaterials);
