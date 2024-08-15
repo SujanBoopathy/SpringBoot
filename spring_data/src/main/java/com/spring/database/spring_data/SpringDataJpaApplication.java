@@ -54,11 +54,11 @@ public class SpringDataJpaApplication {
 //			System.out.println(studentList4);
 			
 			
-			processCourse(courseMaterialRepo,courseRepo,teacherRepo);
+			processCourse(courseMaterialRepo,courseRepo,teacherRepo,student2);
 		};
 	}
 	
-	public void processCourse(CourseMaterialRepository courseMaterialRepo,CourseRepository courseRepo,TeacherRepository teacherRepo) {
+	public void processCourse(CourseMaterialRepository courseMaterialRepo,CourseRepository courseRepo,TeacherRepository teacherRepo,Student s) {
 //		Course course = new Course(5,"DSA");
 		
 //		CourseMaterial courseMaterial = new CourseMaterial("google.com",course);
@@ -72,7 +72,7 @@ public class SpringDataJpaApplication {
 		System.out.println(courseList);
 		
 		Teacher sujan = new Teacher("saubali","boopathy");
-		Course course2 = new Course(5,"C++",sujan);
+		Course course2 = new Course(5,"C++",sujan,List.of(s));
 		courseRepo.save(course2);
 		
 //		Teacher teacher = new Teacher("sujan","boopathy",List.of(course2));

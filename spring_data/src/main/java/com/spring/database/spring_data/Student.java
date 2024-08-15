@@ -40,10 +40,10 @@ public class Student {
 			generator = "student_sequence"
 	)
 	@Column(
-			name = "id",
+			name = "student_id",
 			updatable = false
 	)
-	private Long id;
+	private Long studentId;
 	@Column( 
 			name = "first_name",
 			nullable = false, 
@@ -89,7 +89,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+		return "Student [id=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", age=" + age + ", guardian=" + guardian + "]";
 	}
 }
